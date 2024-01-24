@@ -21,8 +21,8 @@ fi
 # | NODASH           | NODASH     |  
 POSTFIX=$(git branch | grep '\*' | sed 's/* //' | sed 's/^.*\///' | sed 's/^\([^-]*-[^-]*\).*/\1/')  
 
-# If POSTFIX is 'master', do not modify commit message
-if [[ "$POSTFIX" == "master" ]]; then
+# If POSTFIX is 'master' or 'main', do not modify commit message
+if [[ "$POSTFIX" == "master" ]] || [[ "$POSTFIX" == "main" ]]; then
   exit 0
 fi
   
