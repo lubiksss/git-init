@@ -11,4 +11,4 @@ mkdir -p $PRHOOK
 [ ! -e ./$GITHOOK/commit-msg ] && mv $MAIN/commit-msg ./$GITHOOK/commit-msg
 [ ! -e ./$PRHOOK/pull_request_template.md ] && mv $MAIN/pull_request_template.md ./$PRHOOK/pull_request_template.md
 
-rm -rf MAIN
+rm -rf $MAIN
