@@ -2,7 +2,7 @@
 
 ## 필수 리뷰어
 @whishaw.az
-@randy.chi
+@randy.choi
 @dane.w
 @eli.nabro
 @ethan.1752
