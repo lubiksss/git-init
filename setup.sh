@@ -7,13 +7,13 @@ PRHOOK=".github"
 mkdir -p $GITHOOK
 mkdir -p $PRHOOK
 
-[ ! -e "./READMD.md" ] && mv $MAIN/README.md "./README.md" && echo -e "\033[0;32mMake ./README.md\033[0m"
+[ ! -e "./README.md" ] && mv $MAIN/README.md "./README.md" && echo -e "\033[0;32mMake ./README.md\033[0m"
 [ ! -e "./$GITHOOK/commit-msg" ] && mv $MAIN/commit-msg "./$GITHOOK/commit-msg" && echo -e "\033[0;32mMake .git/hooks/commit-msg\033[0m"
 [ ! -e "./$PRHOOK/pull_request_template.md" ] && mv $MAIN/pull_request_template.md "./$PRHOOK/pull_request_template.md" && echo -e "\033[0;32mMake .github/pull_request_template.md\033[0m"
 
 rm -rf $MAIN
 
-echo -e "\nEnter programming language for .gitignore\nYou can use ',' ex) scala,go\nIf you don't need this, just enter"
+echo -e "\033[1;36m\nEnter programming language for .gitignore\nYou can use ',' ex) scala,go\nIf you don't need this, just enter\033[0m"
 read LANG
 
 if [ -z "$LANG" ]
