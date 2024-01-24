@@ -13,13 +13,12 @@ mkdir -p $PRHOOK
 
 rm -rf $MAIN
 
-echo -e "Enter programming language for .gitignore\nYou can use comma like scala,go\nYou don't need this, just enter"
+echo -e "Enter programming language for .gitignore\nYou can use ',' ex)scala,go\nIf you don't need this, just enter"
 read LANG
 
 if [ -z "$LANG" ]
 then
-    echo "No programming language entered. Exiting..."
-    exit 1
+    exit 0
 fi
 
 echo -e "\n" >> .gitignore;
