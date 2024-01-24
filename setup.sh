@@ -7,8 +7,15 @@ PRHOOK=".github"
 mkdir -p $GITHOOK
 mkdir -p $PRHOOK
 
-[ ! -e ./READMD.md ] && mv $MAIN/README.md ./README.md
-[ ! -e ./$GITHOOK/commit-msg ] && mv $MAIN/commit-msg ./$GITHOOK/commit-msg
-[ ! -e ./$PRHOOK/pull_request_template.md ] && mv $MAIN/pull_request_template.md ./$PRHOOK/pull_request_template.md
+[ ! -e "./READMD.md" ] && mv $MAIN/README.md "./README.md"
+[ ! -e "./$GITHOOK/commit-msg" ] && mv $MAIN/commit-msg "./$GITHOOK/commit-msg"
+[ ! -e "./$PRHOOK/pull_request_template.md" ] && mv $MAIN/pull_request_template.md "./$PRHOOK/pull_request_template.md"
+
+echo "Enter programming language for .gitignore, Use ',': "
+read LANG
+
+echo "\n" >> .gitignore;
+curl https://www.toptal.com/developers/gitignore/api/macos,intellij,$LANG >> .gitignore;
+echo "\n#idea\n.idea" >> .gitignore;
 
 rm -rf $MAIN
