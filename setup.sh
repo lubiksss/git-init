@@ -14,8 +14,8 @@ mkdir -p $PRHOOK
 echo "Enter programming language for .gitignore, Use ',': "
 read LANG
 
-echo "\n" >> .gitignore;
+echo -e "\n" >> .gitignore;
 curl https://www.toptal.com/developers/gitignore/api/macos,intellij,$LANG >> .gitignore;
-echo "\n#idea\n.idea" >> .gitignore;
+echo -e "\n#idea\n.idea" >> .gitignore;
 
 rm -rf $MAIN
