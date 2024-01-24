@@ -11,11 +11,18 @@ mkdir -p $PRHOOK
 [ ! -e "./$GITHOOK/commit-msg" ] && mv $MAIN/commit-msg "./$GITHOOK/commit-msg"
 [ ! -e "./$PRHOOK/pull_request_template.md" ] && mv $MAIN/pull_request_template.md "./$PRHOOK/pull_request_template.md"
 
-echo "Enter programming language for .gitignore, Use ',': "
+rm -rf $MAIN
+
+echo -e "Enter programming language for .gitignore\nYou can use comma like scala,go\nYou don't need this, just enter"
 read LANG
+
+if [ -z "$LANG" ]
+then
+    echo "No programming language entered. Exiting..."
+    exit 1
+fi
 
 echo -e "\n" >> .gitignore;
 curl https://www.toptal.com/developers/gitignore/api/macos,intellij,$LANG >> .gitignore;
 echo -e "\n#idea\n.idea" >> .gitignore;
 
-rm -rf $MAIN
