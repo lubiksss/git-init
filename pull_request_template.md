@@ -1,13 +1,14 @@
 ## JIRA 번호
 
 ## 필수 리뷰어
-@whishaw.az
-@randy.choi
-@dane.w
-@eli.nabro
-@ethan.1752
-@ben.ny
-@justin.in
+@whishaw-az
+@randy-choi
+@dane-w
+@eli-nabro
+@ethan-1752
+@ben-ny
+@justin-in
+@jake-0208
 
 ### 개요
 
