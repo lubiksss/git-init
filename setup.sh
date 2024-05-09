@@ -19,7 +19,7 @@ if [ ! -e ~/.gitmessage.txt ]; then
     git config commit.template ~/.gitmessage.txt
     echo "\033[0;32mMake ~/.gitmessage.txt and applied to this project\033[0m"
 else
-    echo "\033[0;31m~/.gitmessage.txt already exists. Do you want to change? (y/n): \033[0m"
+    echo -n "\033[0;31m~/.gitmessage.txt already exists. Do you want to change? (y/n): \033[0m"
 	read choice
     if [ "$choice" = "y" ]; then
     mv "$MAIN/.gitmessage.txt" ~/.gitmessage.txt
@@ -35,7 +35,7 @@ if [ ! -e "$GITHOOK/commit-msg" ]; then
     mv "$MAIN/commit-msg" "$GITHOOK/commit-msg"
     echo "\033[0;32mMake .git/hooks/commit-msg\033[0m"
 else
-    echo "\033[0;31m$GITHOOK/commig-msg already exists. Do you want to change? (y/n): \033[0m"
+    echo -n "\033[0;31m$GITHOOK/commig-msg already exists. Do you want to change? (y/n): \033[0m"
 	read choice
     if [ "$choice" = "y" ]; then
         mv "$MAIN/commit-msg" "$GITHOOK/commit-msg"
@@ -50,7 +50,7 @@ if [ ! -e "$PRHOOK/pull_request_template.md" ]; then
     mv "$MAIN/pull_request_template.md" "$PRHOOK/pull_request_template.md"
     echo "\033[0;32mMake .github/pull_request_template.md\033[0m"
 else
-    echo "\033[0;31m$PRHOOK/pull_request_template.md already exists. Do you want to change? (y/n): \033[0m"
+    echo -n "\033[0;31m$PRHOOK/pull_request_template.md already exists. Do you want to change? (y/n): \033[0m"
 	read choice
     if [ "$choice" = "y" ]; then
         mv "$MAIN/pull_request_template.md" "$PRHOOK/pull_request_template.md"
@@ -65,7 +65,7 @@ if [ ! -e "./README.md" ]; then
     mv "$MAIN/README.md" "./README.md"
     echo "\033[0;32mMake ./README.md\033[0m"
 else
-    echo "\033[0;31m./READMD.md already exists. Do you want to change? (y/n): \033[0m"
+    echo -n "\033[0;31m./READMD.md already exists. Do you want to change? (y/n): \033[0m"
 	read choice
     if [ "$choice" = "y" ]; then
         mv "$MAIN/README.md" "./README.md"
@@ -77,7 +77,7 @@ fi
 
 # 5. Set .gitignore
 if [ ! -e "./.gitignore" ]; then
-        echo "\033[0;31mEnter programming language for .gitignore\nYou can use ',' ex) scala,go\nIf you don't need this, just enter: \033[0m"
+		echo -n "\033[0;32mEnter programming language for .gitignore. (scala,go,gradle): \033[0m"
 		read LANG
         if [ -z "$LANG" ]; then
             echo "\033[0;31mDon't make .gitignore\033[0m"
@@ -88,12 +88,12 @@ else
     echo "\033[0;31m./gitignore already exists. Do you want to update? (y/n): \033[0m"
 	read choice
     if [ "$choice" = "y" ]; then
-        echo "\033[0;31mEnter programming language for .gitignore\nYou can use ',' ex) scala,go\nIf you don't need this, just enter: \033[0m"
+		echo -n "\033[0;32mEnter programming language for .gitignore. (scala,go,gradle): \033[0m"
 		read LANG
         if [ -z "$LANG" ]; then
             echo "\033[0;31mDon't make .gitignore\033[0m"
         else
-            echo "\n" >> .gitignore && curl https://www.toptal.com/developers/gitignore/api/macos,intellij,$LANG >> .gitignore && echo "\n#idea\n.idea" >> .gitignore && echo "\033[0;32mMake .gitignore\033[0m"
+            echo "\n" >> .gitignore && curl https://www.toptal.com/developers/gitignore/api/macos,intellij,$LANG >> .gitignore && echo "\n#idea\n.idea" >> .gitignore && echo "\033[0;32mUpdate .gitignore\033[0m"
         fi
     else
         echo "\033[0;31mNo changes made\033[0m"
