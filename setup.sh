@@ -82,7 +82,7 @@ if [ ! -e "./.gitignore" ]; then
         if [ -z "$LANG" ]; then
             echo "\033[0;31mDon't make .gitignore\033[0m"
         else
-            echo "\n" >> .gitignore && curl https://www.toptal.com/developers/gitignore/api/macos,intellij,$LANG >> .gitignore && echo "\n#idea\n.idea" >> .gitignore && echo "\033[0;32mMake .gitignore\033[0m"
+            echo "\n" >> .gitignore && curl https://www.toptal.com/developers/gitignore/api/macos,intellij,$LANG >> .gitignore && echo "\n#idea\n.idea" >> .gitignore && echo "\033[0;32mMake .gitignore using https://www.toptal.com/developers/gitignore\033[0m"
         fi
 else
     printf "\033[0;31m./gitignore already exists. Do you want to update? (y/n): \033[0m"
@@ -93,7 +93,7 @@ else
         if [ -z "$LANG" ]; then
             echo "\033[0;31mDon't make .gitignore\033[0m"
         else
-            echo "\n" >> .gitignore && curl https://www.toptal.com/developers/gitignore/api/macos,intellij,$LANG >> .gitignore && echo "\n#idea\n.idea" >> .gitignore && echo "\033[0;32mUpdate .gitignore\033[0m"
+            echo "\n" >> .gitignore && curl https://www.toptal.com/developers/gitignore/api/macos,intellij,$LANG >> .gitignore && echo "\n#idea\n.idea" >> .gitignore && echo "\033[0;32mUpdate .gitignore using https://www.toptal.com/developers/gitignore\033[0m"
         fi
     else
         echo "\033[0;32mNo changes made\033[0m"
