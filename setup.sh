@@ -6,7 +6,7 @@ GITHOOK=".git/hooks"
 PRHOOK=".github"
 
 if [ ! -d .git ]; then
-    echo "\033[0;31mNo .git. Exit\033[0m"
+    echo "\033[0;31mPlease 'git init' before setup\033[0m"
     rm -rf "$MAIN"
     exit 1
 else
@@ -26,7 +26,7 @@ else
     git config commit.template ~/.gitmessage.txt
     echo "\033[0;32mMake ~/.gitmessage.txt. and applied to this project\033[0m"
     else
-        echo "\033[0;31mNo changes made\033[0m"
+        echo "\033[0;32mNo changes made\033[0m"
     fi
 fi
 
@@ -41,7 +41,7 @@ else
         mv "$MAIN/commit-msg" "$GITHOOK/commit-msg"
         echo "\033[0;32mMake .git/hooks/commit-msg\033[0m"
     else
-        echo "\033[0;31mNo changes made\033[0m"
+        echo "\033[0;32mNo changes made\033[0m"
     fi
 fi
 
@@ -56,7 +56,7 @@ else
         mv "$MAIN/pull_request_template.md" "$PRHOOK/pull_request_template.md"
         echo "\033[0;32mMake .github/pull_request_template.md\033[0m"
     else
-        echo "\033[0;31mNo changes made\033[0m"
+        echo "\033[0;32mNo changes made\033[0m"
     fi
 fi
 
@@ -71,7 +71,7 @@ else
         mv "$MAIN/README.md" "./README.md"
         echo "\033[0;32mMake ./README.md\033[0m"
     else
-        echo "\033[0;31mNo changes made\033[0m"
+        echo "\033[0;32mNo changes made\033[0m"
     fi
 fi
 
@@ -96,7 +96,7 @@ else
             echo "\n" >> .gitignore && curl https://www.toptal.com/developers/gitignore/api/macos,intellij,$LANG >> .gitignore && echo "\n#idea\n.idea" >> .gitignore && echo "\033[0;32mUpdate .gitignore\033[0m"
         fi
     else
-        echo "\033[0;31mNo changes made\033[0m"
+        echo "\033[0;32mNo changes made\033[0m"
     fi
 fi
 
