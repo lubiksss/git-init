@@ -35,7 +35,7 @@ if [ ! -e "$GITHOOK/commit-msg" ]; then
     mv "$MAIN/commit-msg" "$GITHOOK/commit-msg"
     echo "\033[0;32mMake .git/hooks/commit-msg\033[0m"
 else
-    printf "\033[0;31m$GITHOOK/commig-msg already exists. Do you want to change? (y/n): \033[0m"
+    printf "\033[0;31m$GITHOOK/commit-msg already exists. Do you want to change? (y/n): \033[0m"
 	read choice
     if [ "$choice" = "y" ]; then
         mv "$MAIN/commit-msg" "$GITHOOK/commit-msg"
