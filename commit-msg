@@ -1,14 +1,25 @@
-#!/bin/bash  
+#!/bin/sh  
   
-COMMIT_MESSAGE_FILE_PATH=$1  
-MESSAGE=$(cat "$COMMIT_MESSAGE_FILE_PATH")  
+COMMIT_MESSAGE_FILE=$1  
+MESSAGE=$(cat "$COMMIT_MESSAGE_FILE")  
   
-# 커밋 메시지가 있을 때만 티켓 넘버를 추가한다.  
-# 커밋 메시지가 비이었으면 'Aborting commit due to empty commit message.' 와 함께 커밋이 실패해야 하는데  
-# 이 상황에서 티켓 넘버를 메시지에 추가해버리면 커밋이 성공해버린다. 이를 방지하기 위해 커밋 메시지가 있을 때만 티켓 넘버를 추가한다.  
-if [[ $(head -1 "$COMMIT_MESSAGE_FILE_PATH") == '' ]]; then  
-  exit 0  
-fi  
+sed -i '' -e '/^#/d' $COMMIT_MESSAGE_FILE
+
+## type checking
+COMMIT_TYPE=$(cat $COMMIT_MESSAGE_FILE | head -1 | cut -d ":" -f1 | cut -d " " -f1)
+IS_VALID=NO
+AVAILABLE_TYPE=( feat fix refactor perf docs style test chore init merge )
+for TYPE in ${AVAILABLE_TYPE[@]}; do
+    if [ "$COMMIT_TYPE" = "$TYPE" ]; then
+        IS_VALID=YES
+    fi
+done
+if [ "$IS_VALID" = NO ]; then
+    echo >&2 "COMMIT FAILED"
+    echo >&2 "제목에 커밋 타입 메세지 기입 필요"
+    echo >&2 "가능 타입 : ${AVAILABLE_TYPE[@]}"
+    exit 1
+fi
   
 # 브랜치 이름에서 마지막 '/' 이후의 문자열만 남긴다. '/'가 없다면 브랜치 전체 이름이 POSTFIX 된다.  
 # POSTFIX의 첫 번째 '-' 앞뒤의 문자열만 포함한다. '-'가 없다면 변경은 없다  
@@ -26,4 +37,4 @@ if [[ "$POSTFIX" == "master" ]] || [[ "$POSTFIX" == "main" ]]; then
   exit 0
 fi
   
-printf "%s\n\n%s" "$MESSAGE" "$POSTFIX" > "$COMMIT_MESSAGE_FILE_PATH"
+printf "%s\n\n%s" "$MESSAGE" "$POSTFIX" > "$COMMIT_MESSAGE_FILE"

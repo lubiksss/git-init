@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 MAIN="git-init-main"
 GITHOOK=".git/hooks"

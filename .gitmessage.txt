@@ -1,0 +1,27 @@
+# <type>: <subject>
+##### Subject 50 characters ################# -> |
+##### 가능한 type 종류에 대해서는 아래 참조 ######
+ 
+ 
+# Body Message (생략가능)
+######## Body 72 characters ####################################### -> |
+ 
+# JIRA Issue Tracker Number or URL (생략가능)
+##JIRA_TICKET_PLACEHOLDER##
+ 
+# --- COMMIT END ---
+# Type can be
+#   feat    : 새로운 기능 추가
+#   fix     : 버그 수정
+#   refactor: 코드 리팩토링
+#   perf    : 성능 최적화
+#   docs    : 문서 수정
+#   style   : 코드 포맷팅, 세미콜론 누락
+#             운영 코드 변경 없는 경우
+#   test    : 테스트 코드 추가, 테스트 코드 리팩토링
+#             운영 코드 변경 없는 경우
+#   chore   : 빌드 업무 수정, 패키지 매니저 수정
+#             운영 코드 변경 없는 경우
+#   init    : git 최초 설정
+#   merge   : merge 태그
+# ------------------
