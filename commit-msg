@@ -16,8 +16,8 @@ for TYPE in ${AVAILABLE_TYPE[@]}; do
 done
 if [ "$IS_VALID" = NO ]; then
     echo >&2 "COMMIT FAILED"
-    echo >&2 "제목에 커밋 타입 메세지 기입 필요"
-    echo >&2 "가능 타입 : ${AVAILABLE_TYPE[@]}"
+    echo >&2 "Type message must be in the title"
+    echo >&2 "Available type: ${AVAILABLE_TYPE[@]}"
     exit 1
 fi
   
