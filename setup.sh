@@ -23,8 +23,8 @@ else
 	read choice
     if [ "$choice" = "y" ]; then
     mv "$MAIN/.gitmessage.txt" ~/.gitmessage.txt
-	git config --global commit.template ~/.gitmessage.txt
-    echo "\033[0;32mMake ~/.gitmessage.txt. and applied for global\033[0m"
+	git config commit.template ~/.gitmessage.txt
+    echo "\033[0;32mMake ~/.gitmessage.txt. and applied to this project\033[0m"
     else
         echo "\033[0;32mNo changes made\033[0m"
     fi
