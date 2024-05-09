@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # 0. Prepare
 MAIN="git-init-main"
