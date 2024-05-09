@@ -7,6 +7,7 @@ PRHOOK=".github"
 
 if [ ! -d .git ]; then
     echo "No .git directory found in the current directory."
+    rm -rf "$MAIN"
     exit 1
 else
     mkdir -p "$GITHOOK" "$PRHOOK"
