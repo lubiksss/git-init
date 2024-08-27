@@ -8,7 +8,7 @@ sed -i '' -e '/^#/d' $COMMIT_MESSAGE_FILE
 ## type checking
 COMMIT_TYPE=$(cat $COMMIT_MESSAGE_FILE | head -1 | cut -d ":" -f1 | cut -d " " -f1)
 IS_VALID=NO
-AVAILABLE_TYPE=( feat fix refactor perf docs style test chore init merge )
+AVAILABLE_TYPE=( feat fix refactor perf docs style test chore init merge Merge)
 for TYPE in ${AVAILABLE_TYPE[@]}; do
     if [ "$COMMIT_TYPE" = "$TYPE" ]; then
         IS_VALID=YES
