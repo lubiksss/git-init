@@ -7,7 +7,6 @@
 @randy-choi
 @ethan-1752
 @ben-ny
-@justin-in
 @jake-0208
  
 ## 설명 ( 변경 내역 및 배경 )
